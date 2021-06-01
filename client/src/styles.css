@@ -1,0 +1,241 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100vh; width: 100vw; min-width: 900px;}
+* { margin: 0; font-family: 'Montserrat', sans-serif;}
+
+.mat-form-field-wrapper{
+    margin-bottom: 20px;
+  }
+
+.mat-horizontal-stepper-header-container{
+    background-color: rgb(0,150,136);
+}
+
+.mat-form-field{
+    position: static !important;
+}
+
+.final-step{
+    display: flex !important;
+    flex-direction: column;
+    align-content: center !important;
+    justify-content: center !important;
+}
+
+.mat-horizontal-content-container{
+position: relative ;
+background-color:rgb(255,204,128);
+height:60%;
+left:23%;
+right:20%;
+width: 50%;
+border-bottom-left-radius: 50px;
+border-bottom-right-radius: 50px;
+-webkit-box-shadow: 0px 30px 26px 0px rgba(69, 69, 69, 0.507);
+-moz-box-shadow: 0px 30px 26px 0px rgba(69, 69, 69, 0.507);
+box-shadow: 0px 30px 26px 0px rgba(69, 69, 69, 0.507);
+
+}
+.container{
+    display: flex !important;
+    flex-direction: column;
+    align-content: center !important;
+    justify-content: center !important;
+}
+.first{
+    display: flex !important;
+    flex-direction: column;
+    align-content: center !important;
+    justify-content: center !important;
+    left: 25%;
+    margin-top: 50px;
+}
+.second{
+    display: flex !important;
+    flex-direction: column;
+    align-content: center !important;
+    justify-content: center !important;
+    left: 25%;
+    margin-top: 50px;
+}
+
+.btn{
+    position: relative;
+    left: 90%;
+margin-top: 50px;}
+.btn2{
+    position: relative;
+    left: 90%;
+    bottom: 15%;
+    margin-bottom: 20px;
+}
+
+
+
+.stepper{
+    background-image: url(https://i.pinimg.com/originals/77/3d/77/773d778fb41bd3945dde0dac42e46996.jpg);
+    height: 100vh ;
+    background-repeat: no-repeat;
+    background-position: 50% 40%;
+    
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+}
+.login p{
+   
+margin-top: 20px;    
+}
+
+.login-card{
+    display: flex !important;
+    background-color:#C5EBE4;
+    height: 50vh;
+    width: 20vw;
+    min-width: 200px;
+    min-height: 200px;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+
+
+
+.site-info{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+
+}
+
+
+.cart-info{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin:0;
+
+}
+
+.cart-info > *{
+    margin: 0;
+}
+.login-container{
+        background-image: url('C:\Users\YAKKKKKKKKKKK\Desktop\vector-nature-landscape-illustration.jpg');   
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+
+        
+    }
+
+  
+    
+
+.mat-icon{
+    font-size: 100px;
+    
+
+}
+.icon-bgc{
+    position: relative;
+    top: 70px;
+    background-color: rgba(255, 255, 255, 0.568);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    
+}
+    
+
+::ng-deep .mat-icon{
+    height:200px !important;
+    width:200px !important;
+    font-size:200px !important;
+}
+
+
+.arrow{
+    margin-right: 100px;
+    margin-left: 0;
+}
+
+.proceed .mat-ripple{
+    width: 100px;
+    height: 100px;
+}
+.order-container{
+    width: 100%;
+    height: 80%;
+    display: flex;
+justify-content: center;
+align-items: flex-start;
+flex-wrap: wrap;
+}
+app-recipt{
+    width: 20%;
+    height: 80%;
+    margin-top: 20px;
+    overflow: auto;
+    background-color:#C5EBE4;
+    margin-right: 10px;
+ 
+    
+}
+app-order{
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 40%;
+    height: 80%;
+    background-color: #C5EBE4;
+    overflow: auto;
+}
+
+.highlight {
+    background-color: rgb(255,204,128);
+    font-weight: bold;
+  }
+
+  .search{
+      font-size: 20px;
+  }
+  .mat-toolbar{
+    background-color: rgb(255,204,128);
+
+  }
+.mt-50{
+    margin-top: 50px;
+}
+
+.center{
+    margin: auto;
+    width: 50%;
+}
