@@ -1,0 +1,87 @@
+create database project4;
+
+
+CREATE TABLE `categories` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CATEGORY` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `users` (
+  `ID` int(11) NOT NULL,
+  `F_NAME` varchar(255) DEFAULT NULL,
+  `L_NAME` varchar(255) DEFAULT NULL,
+  `EMAIL` varchar(255) NOT NULL,
+  `PASSWORD` varchar(255) NOT NULL,
+  `CITY` varchar(255) DEFAULT NULL,
+  `STREET` varchar(255) DEFAULT NULL,
+  `ADMIN_ROLE` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `shopping_cart` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_IDENTIFIER` int(11) NOT NULL,
+  `CREATION_DATE` date NOT NULL,
+  `ORDER_STATUS` tinyint(1) NOT NULL,
+  `DELIVERY_DATE` date DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `USER_IDENTIFIER` (`USER_IDENTIFIER`),
+  CONSTRAINT `shopping_cart_ibfk_1` FOREIGN KEY (`USER_IDENTIFIER`) REFERENCES `users` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `products` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PRODUCT_NAME` varchar(255) NOT NULL,
+  `PRODUCT_CATEGORY` int(11) NOT NULL,
+  `PRICE` int(11) NOT NULL,
+  `IMAGE` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `PRODUCT_CATEGORY` (`PRODUCT_CATEGORY`),
+  CONSTRAINT `products_ibfk_1` FOREIGN KEY (`PRODUCT_CATEGORY`) REFERENCES `categories` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `orders` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `USER_IDENTIFIER` int(11) NOT NULL,
+  `SHOPPING_CART_IDENTIFIER` int(11) NOT NULL,
+  `FINAL_PRICE` int(255) NOT NULL,
+  `CITY` varchar(255) NOT NULL,
+  `STREET` varchar(255) NOT NULL,
+  `SHIPPMENT_DATE` date NOT NULL,
+  `ORDER_DATE` date NOT NULL,
+  `CREDIT_CARED` int(4) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `USER_IDENTIFIER` (`USER_IDENTIFIER`),
+  KEY `SHOPPING_CART_IDENTIFIER` (`SHOPPING_CART_IDENTIFIER`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`USER_IDENTIFIER`) REFERENCES `users` (`ID`),
+  CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`SHOPPING_CART_IDENTIFIER`) REFERENCES `shopping_cart` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `cart_item` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PRODUCT_IDENTIFIER` int(11) NOT NULL,
+  `SHOPPING_CART_IDENTIFIER` int(11) NOT NULL,
+  `QTY` int(11) NOT NULL,
+  `PRICE` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `PRODUCT_IDENTIFIER` (`PRODUCT_IDENTIFIER`),
+  KEY `SHOPPING_CART_IDENTIFIER` (`SHOPPING_CART_IDENTIFIER`),
+  CONSTRAINT `cart_item_ibfk_1` FOREIGN KEY (`PRODUCT_IDENTIFIER`) REFERENCES `products` (`ID`),
+  CONSTRAINT `cart_item_ibfk_2` FOREIGN KEY (`SHOPPING_CART_IDENTIFIER`) REFERENCES `shopping_cart` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO categories (CATEGORY) VALUES ('succulent'),('indoor'),('outdoor'),('tropical'),('seeds'),('tools');
+
+
+INSERT INTO products  (PRODUCT_NAME, PRODUCT_CATEGORY, PRICE, IMAGE) VALUES 
+('Fasciated haworthia', 7,20, 'https://t4.ftcdn.net/jpg/01/45/11/89/360_F_145118927_rLktmMGHqxN5PoQVNMgAUen4LBPPk4sS.jpg'),
+('Kentia Palm', 8, 200, 'https://mashtela-urbanit.co.il/images/stories/virtuemart/product/Kenzia.jpg'),
+('Lavandula pinnata', 9, 100, 'https://lcp.co.il/wp-content/uploads/2018/04/51017-061f148350a1f40b00560224174609df.jpg'),
+('Strelitzia reginae', 10, 150, 'https://casagreen.co.il/wp-content/uploads/2020/08/%D7%A6%D7%99%D7%A4%D7%95%D7%A8-%D7%92%D7%9F-%D7%A2%D7%93%D7%9F.png'),
+('Basil', 11, 10, 'https://cdn.shopify.com/s/files/1/0156/0137/products/Basil_plant_1280x960_0fc95446-605c-49e3-aa42-c6f3a171b8ae.jpg'),
+('Cutter', 12, 20, 'https://birgei-hadarom.co.il/wp-content/uploads/2017/11/76014.jpg');
+
+INSERT INTO users (EMAIL,PASSWORD,ADMIN_ROLE) VALUES ("admin@gmail.com",1234,1)
+
+
